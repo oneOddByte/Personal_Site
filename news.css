@@ -1,0 +1,141 @@
+/* Base styles and reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 15px;
+    background-color: #f9f9f9;
+}
+
+/* Typography */
+h1 {
+    font-size: 1.8rem;
+    color: #005596;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid #e91e63;
+}
+
+h3 {
+    font-size: 0.9rem;
+    color: #666;
+    font-weight: normal;
+    font-style: italic;
+}
+
+/* News list */
+ol {
+    counter-reset: news-counter;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+ol li {
+    position: relative;
+    padding: 12px 15px 12px 40px;
+    margin-bottom: 10px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s;
+    font-size: 1rem;
+    word-wrap: break-word;
+}
+
+ol li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+ol li::before {
+    counter-increment: news-counter;
+    content: counter(news-counter);
+    position: absolute;
+    left: 10px;
+    font-weight: bold;
+    background-color: #e91e63;
+    color: white;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 24px;
+    font-size: 0.85rem;
+}
+
+/* Header section */
+.header-divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, #ccc, transparent);
+    margin: 5px 0 20px;
+}
+
+/* Mobile optimizations */
+@media (max-width: 600px) {
+    body {
+        padding: 12px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    ol li {
+        padding: 10px 10px 10px 32px;
+        font-size: 0.95rem;
+        margin-bottom: 8px;
+        line-height: 1.4;
+    }
+
+    ol li::before {
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        font-size: 0.75rem;
+        left: 6px;
+    }
+
+    /* Add touch-friendly spacing */
+    ol li {
+        min-height: 44px; /* Minimum Apple recommendation for touch targets */
+    }
+
+    /* Reduce whitespace */
+    br {
+        display: none;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #121212;
+        color: #e0e0e0;
+    }
+
+    h1 {
+        color: #4dabf5;
+        border-bottom-color: #e91e63;
+    }
+
+    h3 {
+        color: #b0b0b0;
+    }
+
+    ol li {
+        background-color: #1e1e1e;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+}
