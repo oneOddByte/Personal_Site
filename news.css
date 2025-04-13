@@ -5,6 +5,48 @@
     box-sizing: border-box;
 }
 
+/* Link styling */
+a {
+    text-decoration: none;
+    color: #005596; /* Match heading color for consistency */
+    transition:
+        color 0.2s ease,
+        text-decoration 0.2s ease;
+    font-weight: 500;
+}
+
+a:hover {
+    color: #e91e63; /* Use your accent color on hover */
+    text-decoration: underline;
+}
+
+a:focus {
+    outline: 2px solid #4dabf5;
+    outline-offset: 2px;
+}
+
+/* Links inside list items */
+ol li a {
+    color: inherit; /* Use the parent text color for context */
+    display: inline-block; /* Better touch targets */
+    padding: 2px 0;
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+    a {
+        color: #4dabf5;
+    }
+
+    a:hover {
+        color: #e91e63;
+    }
+
+    a:focus {
+        outline-color: #4dabf5;
+    }
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
