@@ -32,6 +32,17 @@ ol li a {
     padding: 2px 0;
 }
 
+/* Fix for strong tags inside links */
+ol li a strong {
+    font-weight: 500; /* Match the link's font weight */
+    color: inherit; /* Use the parent text color */
+}
+
+/* Normalize strong tag appearance */
+strong {
+    font-weight: 500; /* Make less bold to match other text */
+}
+
 /* Dark mode adjustments */
 @media (prefers-color-scheme: dark) {
     a {
@@ -179,5 +190,10 @@ ol li::before {
     ol li {
         background-color: #1e1e1e;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Fix for strong tags in dark mode */
+    ol li a strong {
+        color: inherit;
     }
 }
