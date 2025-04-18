@@ -1,0 +1,84 @@
+/* Style for Linear Algebra Notes */
+
+/* Base styles */
+body {
+    font-family: 'Georgia', serif;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* Headings */
+h3 {
+    color: #0066cc;
+    border-bottom: 2px solid #0066cc;
+    padding-bottom: 5px;
+    margin-top: 25px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+h4 {
+    color: #666;
+    font-style: italic;
+    margin-left: 15px;
+    border-left: 3px solid #ccc;
+    padding-left: 10px;
+}
+
+/* Special terms styling */
+h3:contains('GRAM-SCHMIDT'),
+h3:contains('QR DECOMP'),
+h3:contains('LINEAR TRANSFORMATION') {
+    color: #cc3300;
+    font-weight: 700;
+    background-color: #f2f2f2;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+/* Page breaks */
+br {
+    margin-bottom: 10px;
+}
+
+/* Custom class for mathematical notation */
+.math {
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+}
+
+/* Print styles */
+@media print {
+    body {
+        background-color: white;
+        font-size: 12pt;
+    }
+
+    h3 {
+        page-break-after: avoid;
+    }
+
+    h4 {
+        page-break-after: avoid;
+    }
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    h3 {
+        font-size: 16px;
+    }
+
+    h4 {
+        font-size: 14px;
+    }
+}
