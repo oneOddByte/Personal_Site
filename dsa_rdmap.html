@@ -1,0 +1,536 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DSA Learning Roadmap</title>
+    <link rel="stylesheet" href="styles-dsa.css" />
+    <style>
+      /* Base styles and reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+        line-height: 1.6;
+        color: #333; /* Default light mode text color */
+        background-color: #f8f9fa; /* Default light mode background */
+        padding: 20px;
+        max-width: 900px;
+        margin: 0 auto; /* Centers the body content */
+      }
+
+      /* Header Styling */
+      header {
+        text-align: center;
+        margin-bottom: 40px;
+        padding-bottom: 20px;
+        border-bottom: 2px solid #e0e0e0;
+      }
+
+      header h1 {
+        font-size: 2.8rem;
+        color: #2b6cb0;
+        margin: 0.5rem 0;
+        border-bottom: none; /* Override body h1 border */
+        padding-bottom: 0;
+      }
+
+      header p {
+        font-size: 1.1rem;
+        color: #555;
+      }
+
+      /* Typography for sections */
+      h1 {
+        font-size: 2.2rem;
+        color: #2b6cb0; /* Default light mode color */
+        margin: 1rem 0;
+        border-bottom: 3px solid #48bb78; /* Green bottom border */
+        padding-bottom: 0.5rem;
+      }
+
+      h2 {
+        font-size: 1.8rem; /* Slightly larger for main sections */
+        color: #2c5282; /* Default light mode color */
+        margin: 30px 0 15px; /* More spacing for sections */
+        background-color: #e9f5f2; /* Light background for h2 sections */
+        padding: 0.8rem 1.5rem; /* More padding */
+        border-radius: 8px; /* Softer corners */
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); /* Subtle shadow */
+        border-left: 5px solid #48bb78; /* Accent border */
+      }
+
+      h3 {
+        font-size: 1.4rem; /* Adjusted for sub-sections */
+        color: #805ad5; /* Default light mode color */
+        margin: 20px 0 10px;
+      }
+
+      /* Links */
+      a {
+        color: #3182ce; /* Default light mode link color */
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+
+      a:hover {
+        color: #2c5282; /* Default light mode hover color */
+        text-decoration: underline;
+      }
+
+      /* Content styling */
+      section {
+        background-color: white; /* Card background for each section */
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        margin-bottom: 30px;
+      }
+
+      p,
+      ul,
+      ol {
+        margin-bottom: 1rem;
+      }
+
+      ul,
+      ol {
+        padding-left: 2.5rem; /* Indent lists a bit more */
+        margin-bottom: 1.5rem;
+      }
+
+      li {
+        margin-bottom: 0.7rem; /* More space between list items */
+      }
+
+      /* Emphasis */
+      strong {
+        font-weight: bold;
+        color: #e53e3e; /* Ensuring consistent color for strong in light mode */
+        background-color: #fff5f5; /* Light red background for highlight */
+        padding: 2px 5px; /* Slight padding for highlight */
+        border-radius: 3px;
+      }
+
+      /* Horizontal Rule (HR) styling */
+      hr {
+        border: none;
+        border-top: 1px dashed #ccc;
+        margin: 40px 0; /* More space around HR */
+      }
+
+      /* Special tips/resource paragraphs */
+      .resources-tip,
+      .key-tips {
+        background-color: #e6f0ff; /* Light blue background */
+        border-left: 4px solid #3182ce; /* Blue left border */
+        padding: 15px 20px;
+        border-radius: 5px;
+        margin-top: 25px;
+        font-style: italic;
+        color: #2c5282;
+      }
+
+      .key-tips {
+        background-color: #e0fff4; /* Light green background */
+        border-left-color: #48bb78; /* Green left border */
+        color: #2f855a;
+        font-weight: bold;
+        font-style: normal;
+      }
+
+      /* Footer Styling */
+      footer {
+        text-align: center;
+        margin-top: 50px;
+        padding-top: 20px;
+        border-top: 1px solid #e0e0e0;
+        font-size: 0.9rem;
+        color: #777;
+      }
+
+      /* Mobile responsiveness */
+      @media (max-width: 768px) {
+        body {
+          padding: 15px;
+        }
+
+        header h1 {
+          font-size: 2.2rem;
+        }
+
+        h2 {
+          font-size: 1.5rem;
+          padding: 0.6rem 1rem;
+        }
+
+        h3 {
+          font-size: 1.2rem;
+        }
+
+        section {
+          padding: 20px;
+        }
+
+        ul,
+        ol {
+          padding-left: 1.8rem;
+        }
+      }
+
+      /* Small phone screens */
+      @media (max-width: 480px) {
+        body {
+          padding: 10px;
+        }
+
+        header h1 {
+          font-size: 1.8rem;
+        }
+
+        h2 {
+          font-size: 1.3rem;
+          padding: 0.5rem 0.8rem;
+        }
+
+        h3 {
+          font-size: 1.1rem;
+        }
+
+        section {
+          padding: 15px;
+        }
+
+        ul,
+        ol {
+          padding-left: 1.5rem;
+        }
+      }
+
+      /* Dark mode support (applies if user's OS/browser prefers dark mode) */
+      @media (prefers-color-scheme: dark) {
+        body {
+          background-color: #1a202c; /* Dark background */
+          color: #e2e8f0; /* Light text */
+        }
+
+        header {
+          border-bottom-color: #4a5568;
+        }
+
+        header h1 {
+          color: #63b3ed; /* Blue heading */
+        }
+
+        header p {
+          color: #a0aec0;
+        }
+
+        h1 {
+          color: #63b3ed;
+          border-bottom-color: #68d391;
+        }
+
+        h2 {
+          color: #90cdf4; /* Light blue heading */
+          background-color: #2d3748; /* Darker background for h2 */
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); /* Darker shadow */
+          border-left-color: #68d391; /* Green accent border */
+        }
+
+        h3 {
+          color: #b794f4; /* Purple heading */
+        }
+
+        a {
+          color: #4299e1; /* Blue link */
+        }
+
+        a:hover {
+          color: #63b3ed; /* Lighter blue link on hover */
+        }
+
+        section {
+          background-color: #2d3748; /* Dark background for card sections */
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Darker shadow */
+        }
+
+        strong {
+          color: #fc8181; /* Red text for highlight */
+          background-color: #3b2c2c; /* Dark background for highlight */
+        }
+
+        hr {
+          border-top-color: #4a5568; /* Darker dashed line for HR */
+        }
+
+        .resources-tip,
+        .key-tips {
+          background-color: #2a3543; /* Darker background */
+          border-left-color: #4299e1; /* Blue border */
+          color: #a0aec0; /* Lighter text */
+        }
+
+        .key-tips {
+          background-color: #2a3543; /* Consistent dark background */
+          border-left-color: #68d391; /* Green border */
+          color: #a0aec0; /* Consistent lighter text */
+        }
+
+        footer {
+          border-top-color: #4a5568;
+          color: #a0aec0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>DSA Learning Roadmap</h1>
+      <p>
+        A structured path to mastering Data Structures and Algorithms for coding
+        interviews and problem-solving.
+      </p>
+    </header>
+
+    <hr />
+
+    <section>
+      <h2>Phase 1: Foundations (1-2 Months)</h2>
+      <p>
+        <strong>Goal:</strong> Master basic data structures and algorithm
+        analysis.
+      </p>
+
+      <h3>Prerequisites:</h3>
+      <ul>
+        <li>
+          <strong>Programming Language:</strong> Python (recommended for
+          clarity), Java, C++.
+        </li>
+        <li>
+          <strong>Basic Math:</strong> Logarithms, series,
+          permutations/combinations (basic understanding).
+        </li>
+      </ul>
+
+      <h3>Algorithm Analysis:</h3>
+      <ul>
+        <li>Time and Space Complexity (<strong>Big O Notation</strong>).</li>
+        <li>Best, Average, Worst Case.</li>
+        <li>Analyzing loops, recursion.</li>
+      </ul>
+
+      <h3>Basic Data Structures:</h3>
+      <ul>
+        <li>
+          <strong>Arrays:</strong> Static vs. Dynamic, 1D/2D arrays. Operations
+          (access, insert, delete, search).
+        </li>
+        <li><strong>Strings:</strong> Basic string operations.</li>
+        <li>
+          <strong>Linked Lists:</strong> Singly, Doubly, Circular. Operations
+          (insert, delete, traverse, reverse).
+        </li>
+        <li>
+          <strong>Stacks:</strong> LIFO. Operations (push, pop, peek, isEmpty).
+          Applications (parentheses matching, expression evaluation).
+        </li>
+        <li>
+          <strong>Queues:</strong> FIFO. Operations (enqueue, dequeue, peek,
+          isEmpty). Types (circular, priority queue - basic).
+        </li>
+      </ul>
+
+      <p class="resources-tip">
+        <strong>Resources for Phase 1:</strong> FreeCodeCamp, HackerRank,
+        GeeksforGeeks articles, "Grokking Algorithms" book (for intuition).
+      </p>
+    </section>
+
+    <hr />
+
+    <section>
+      <h2>Phase 2: Intermediate Data Structures & Algorithms (2-3 Months)</h2>
+      <p>
+        <strong>Goal:</strong> Dive into non-linear structures and common
+        algorithmic paradigms.
+      </p>
+
+      <h3>Trees:</h3>
+      <ul>
+        <li>
+          <strong>Binary Trees:</strong> Traversal (In-order, Pre-order,
+          Post-order), properties.
+        </li>
+        <li>
+          <strong>Binary Search Trees (BST):</strong> Operations (insert,
+          delete, search), balancing concept (AVL/Red-Black - theoretical).
+        </li>
+        <li>Heaps (Priority Queues): Min-Heap, Max-Heap. Operations.</li>
+        <li>Tries (Prefix Trees).</li>
+      </ul>
+
+      <h3>Graphs:</h3>
+      <ul>
+        <li>Representation (Adjacency Matrix, Adjacency List).</li>
+        <li>
+          <strong>Traversal:</strong> Breadth-First Search (BFS), Depth-First
+          Search (DFS).
+        </li>
+        <li>Applications (connectivity, cycles).</li>
+      </ul>
+
+      <h3>Searching & Sorting:</h3>
+      <ul>
+        <li><strong>Searching:</strong> Linear Search, Binary Search.</li>
+        <li>
+          <strong>Sorting:</strong> Bubble, Selection, Insertion, Merge Sort,
+          Quick Sort, Heap Sort. Analyze complexities and stability.
+        </li>
+      </ul>
+
+      <h3>Algorithmic Paradigms (Introduction):</h3>
+      <ul>
+        <li>
+          <strong>Recursion:</strong> Understanding base cases, recursive calls.
+          Backtracking (basic puzzles).
+        </li>
+        <li><strong>Divide and Conquer:</strong> Merge Sort, Quick Sort.</li>
+        <li>
+          <strong>Greedy Algorithms:</strong> Basic examples (e.g., coin change,
+          activity selection).
+        </li>
+        <li>
+          <strong>Dynamic Programming (Intro):</strong> Memoization vs.
+          Tabulation. Basic problems (Fibonacci, climbing stairs).
+        </li>
+      </ul>
+
+      <p class="resources-tip">
+        <strong>Resources for Phase 2:</strong> LeetCode (Easy/Medium problems),
+        InterviewBit, Standard textbooks ("Introduction to Algorithms" - CLRS,
+        "Algorithms Illuminated" series).
+      </p>
+    </section>
+
+    <hr />
+
+    <section>
+      <h2>Phase 3: Advanced Topics & Problem Solving (2-3 Months)</h2>
+      <p>
+        <strong>Goal:</strong> Tackle complex problems and specialize in
+        advanced techniques.
+      </p>
+
+      <h3>Advanced Trees:</h3>
+      <ul>
+        <li>
+          AVL Trees, Red-Black Trees (deeper understanding/implementation if
+          desired).
+        </li>
+        <li>Segment Trees, Fenwick Trees (BIT).</li>
+        <li>Disjoint Set Union (DSU).</li>
+      </ul>
+
+      <h3>Advanced Graphs:</h3>
+      <ul>
+        <li>Minimum Spanning Trees (MST): Prim's, Kruskal's.</li>
+        <li>
+          Shortest Path Algorithms: Dijkstra's, Bellman-Ford, Floyd-Warshall.
+        </li>
+        <li>Topological Sort.</li>
+        <li>Strongly Connected Components (SCC).</li>
+        <li>Network Flow (Max Flow Min Cut - basic).</li>
+      </ul>
+
+      <h3>Advanced Dynamic Programming:</h3>
+      <ul>
+        <li>
+          Complex DP problems (knapsack, longest common subsequence, matrix
+          chain multiplication).
+        </li>
+        <li>Practice with various DP patterns.</li>
+      </ul>
+
+      <h3>Specialized Algorithms:</h3>
+      <ul>
+        <li>String Algorithms (KMP, Rabin-Karp - basic).</li>
+        <li>Bit Manipulation.</li>
+        <li>
+          Mathematical Algorithms (Number Theory basics, modular arithmetic).
+        </li>
+      </ul>
+
+      <h3>Competitive Programming Strategies:</h3>
+      <ul>
+        <li>Problem decomposition.</li>
+        <li>Pattern recognition.</li>
+        <li>Contest practice (Codeforces, AtCoder).</li>
+      </ul>
+
+      <p class="resources-tip">
+        <strong>Resources for Phase 3:</strong> LeetCode (Medium/Hard problems),
+        Competitive programming platforms, "Competitive Programmer's Handbook."
+      </p>
+    </section>
+
+    <hr />
+
+    <section>
+      <h2>Phase 4: Practice & Application (Ongoing)</h2>
+      <p>
+        <strong>Goal:</strong> Solidify knowledge through consistent practice
+        and explore real-world relevance.
+      </p>
+
+      <h3>Consistent Practice:</h3>
+      <ul>
+        <li>
+          Solve problems daily/weekly on platforms like LeetCode, HackerRank,
+          AlgoExpert.
+        </li>
+        <li>Focus on different categories (arrays, DP, graphs).</li>
+        <li>Mock interviews.</li>
+      </ul>
+
+      <h3>Understand Trade-offs:</h3>
+      <ul>
+        <li>When to use which data structure/algorithm.</li>
+        <li>Space vs. Time complexity trade-offs.</li>
+      </ul>
+
+      <h3>Real-World Application:</h3>
+      <ul>
+        <li>
+          Discuss how DSA applies to real-world software design (e.g., database
+          indexing, network routing, search engines).
+        </li>
+        <li>System Design Interview basics (how DSA informs system design).</li>
+      </ul>
+
+      <h3>Learning from Solutions:</h3>
+      <ul>
+        <li>
+          Don't just get the answer; understand optimal solutions and different
+          approaches.
+        </li>
+        <li>Analyze time and space complexity of different solutions.</li>
+      </ul>
+
+      <p class="key-tips">
+        <strong>Key Tips for Success:</strong> Practice Consistently, Understand
+        Big O, Implement from Scratch, Learn by Explaining, Use Visualizers,
+        Don't Memorize.
+      </p>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 AI Learning Guide. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
