@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tasks - Krish's Site</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1><a href="index.html">Krish's Site</a></h1>
+      <button id="theme-toggle" aria-label="Toggle dark mode">
+        <span class="sun-icon">☀️</span>
+        <span class="moon-icon">🌙</span>
+      </button>
+      <button id="menu-toggle" aria-label="Toggle menu">☰</button>
+      <nav id="main-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="tasks.html" class="active">Tasks</a></li>
+          <li><a href="ai-roadmap.html">AI Roadmap</a></li>
+          <li><a href="opencv-roadmap.html">OpenCV Roadmap</a></li>
+          <li><a href="dsa-roadmap.html">DSA Roadmap</a></li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="games.html">Games</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="page-header">
+      <h2>Task Board</h2>
+    </section>
+
+    <div class="task-controls">
+      <input type="text" id="new-task-input" placeholder="Add a new task..." aria-label="Add a new task">
+      <button id="add-task-btn">Add Task</button>
+    </div>
+
+    <div class="keyboard-shortcuts-info">
+      <p><kbd>N</kbd> - Focus new task input</p>
+      <p><kbd>←/→</kbd> - Move selected task between columns</p>
+      <p><kbd>Enter</kbd> - Edit selected task</p>
+      <p><kbd>Delete</kbd> - Delete selected task</p>
+    </div>
+
+    <div class="task-board">
+      <div class="task-column todo-column">
+        <h3>To Do <span class="task-count" id="todo-count">0</span></h3>
+        <div class="task-list" id="todo-tasks" data-column="todo"></div>
+      </div>
+
+      <div class="task-column doing-column">
+        <h3>Doing <span class="task-count" id="doing-count">0</span></h3>
+        <div class="task-list" id="doing-tasks" data-column="doing"></div>
+      </div>
+
+      <div class="task-column done-column">
+        <h3>Done <span class="task-count" id="done-count">0</span></h3>
+        <div class="task-list" id="done-tasks" data-column="done"></div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="container">
+    <p>© 2025 Krish's Personal Site</p>
+    <div class="keyboard-info">
+      <button id="keyboard-help" aria-label="Keyboard shortcuts">⌨️ Keyboard Shortcuts</button>
+      <div id="keyboard-popup" class="hidden">
+        <h4>Keyboard Shortcuts</h4>
+        <ul>
+          <li><kbd>Tab</kbd> - Navigate between elements</li>
+          <li><kbd>Enter</kbd> - Select/activate focused element</li>
+          <li><kbd>Esc</kbd> - Close mobile menu</li>
+          <li><kbd>D</kbd> - Toggle dark mode</li>
+          <li><kbd>M</kbd> - Toggle mobile menu</li>
+          <li><kbd>N</kbd> - Focus new task input</li>
+          <li><kbd>←/→</kbd> - Move selected task</li>
+          <li><kbd>Delete</kbd> - Delete selected task</li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="tasks.js"></script>
+</body>
+</html>

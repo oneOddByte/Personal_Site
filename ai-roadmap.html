@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Roadmap - Krish's Site</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1><a href="index.html">Krish's Site</a></h1>
+      <button id="theme-toggle" aria-label="Toggle dark mode">
+        <span class="sun-icon">☀️</span>
+        <span class="moon-icon">🌙</span>
+      </button>
+      <button id="menu-toggle" aria-label="Toggle menu">☰</button>
+      <nav id="main-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="tasks.html">Tasks</a></li>
+          <li><a href="ai-roadmap.html" class="active">AI Roadmap</a></li>
+          <li><a href="opencv-roadmap.html">OpenCV Roadmap</a></li>
+          <li><a href="dsa-roadmap.html">DSA Roadmap</a></li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="games.html">Games</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="page-header">
+      <h2>How to REALLY Learn AI</h2>
+      <p>Beyond Syntax - A Deep Understanding Approach</p>
+    </section>
+
+    <div class="card highlight-card">
+      <div class="card-header">
+        <h3>Embrace the Math</h3>
+      </div>
+      <div class="card-content three-columns">
+        <div>
+          <h4>Linear Algebra</h4>
+          <p>Essential for understanding neural network operations (vectors, matrices, matrix multiplication).</p>
+        </div>
+        <div>
+          <h4>Calculus</h4>
+          <p>Crucial for <strong>backpropagation</strong> (derivatives, chain rule).</p>
+        </div>
+        <div>
+          <h4>Probability & Statistics</h4>
+          <p>Fundamental for data understanding, model evaluation, and probabilistic models.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <h3>Understand Algorithms from First Principles</h3>
+      </div>
+      <div class="card-content">
+        <ul class="numbered-list">
+          <li>
+            <p>Implement basic ML algorithms (Linear/Logistic Regression, simple Neural Network) <strong>from scratch using only NumPy</strong>.</p>
+            <p class="note">Focus on <strong>backpropagation</strong>.</p>
+          </li>
+          <li>
+            <p>For every algorithm, ask: What problem does it solve? How does it make decisions? What's its math? How is it trained? What are its limitations?</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <h3>Dive into Core Deep Learning Concepts</h3>
+      </div>
+      <div class="card-content two-columns">
+        <div>
+          <h4>Neural Network Architecture</h4>
+          <p>Understand what a layer is, what a neuron does, different activation functions (Sigmoid, ReLU, Tanh), and why they are used.</p>
+        </div>
+        <div>
+          <h4>Loss Functions</h4>
+          <p>Understand the purpose of loss functions (e.g., Mean Squared Error for regression, Cross-Entropy for classification) and how they quantify error.</p>
+        </div>
+        <div>
+          <h4>Optimizers</h4>
+          <p>Go beyond just calling <code>model.compile(optimizer='adam')</code>. Understand what gradient descent is, how learning rate affects it, and the motivations behind optimizers like Adam, RMSprop, and SGD with momentum.</p>
+        </div>
+        <div>
+          <h4>Regularization</h4>
+          <p>Understand why techniques like L1/L2 regularization, dropout, and batch normalization are used to prevent overfitting.</p>
+        </div>
+        <div>
+          <h4>CNNs</h4>
+          <p>Don't just know "conv2d." Understand what a convolution operation is, how filters extract features, the purpose of pooling layers, and how they build hierarchical representations.</p>
+        </div>
+        <div>
+          <h4>RNNs & Transformers</h4>
+          <p>Understand how these architectures handle sequential data and the concept of "attention."</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <h3>Utilize the Right Resources</h3>
+      </div>
+      <div class="card-content two-columns">
+        <div>
+          <h4>Courses</h4>
+          <ul class="note-list">
+            <li><strong>Andrew Ng's Courses:</strong> Machine Learning Specialization, Deep Learning Specialization</li>
+            <li><strong>Online University Courses:</strong> Free MIT/Stanford/CMU lectures (CS229, CS231n)</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Books & Resources</h4>
+          <ul class="note-list">
+            <li>"Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow"</li>
+            <li>"Deep Learning" by Goodfellow et al.</li>
+            <li>Deep-dive blogs with underlying math</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <h3>Active Learning is Key</h3>
+      </div>
+      <div class="card-content two-columns">
+        <div>
+          <div class="badge-item">
+            <span class="badge">Derive</span>
+            <span>Write out loss functions and gradients on paper</span>
+          </div>
+          <div class="badge-item">
+            <span class="badge">Visualize</span>
+            <span>Draw diagrams of networks and operations</span>
+          </div>
+        </div>
+        <div>
+          <div class="badge-item">
+            <span class="badge">Explain</span>
+            <span>If you can teach it, you understand it</span>
+          </div>
+          <div class="badge-item">
+            <span class="badge">Experiment</span>
+            <span>Intentionally break code, change parameters, observe</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card alert-card">
+      <div class="card-content">
+        <h3>Bottom Line</h3>
+        <p>Learning <code>model.fit()</code> without understanding <strong>gradient descent</strong> or <strong>backpropagation</strong> isn't learning AI; it's just learning a library's API.</p>
+        <p class="emphasis">Prioritize fundamental math, build from scratch, and then apply libraries. It's harder, but it's the only way to become a true AI practitioner.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="container">
+    <p>© 2025 Krish's Personal Site</p>
+    <div class="keyboard-info">
+      <button id="keyboard-help" aria-label="Keyboard shortcuts">⌨️ Keyboard Shortcuts</button>
+      <div id="keyboard-popup" class="hidden">
+        <h4>Keyboard Shortcuts</h4>
+        <ul>
+          <li><kbd>Tab</kbd> - Navigate between elements</li>
+          <li><kbd>Enter</kbd> - Select/activate focused element</li>
+          <li><kbd>Esc</kbd> - Close mobile menu</li>
+          <li><kbd>D</kbd> - Toggle dark mode</li>
+          <li><kbd>M</kbd> - Toggle mobile menu</li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Krish's Site</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1><a href="index.html">Krish's Site</a></h1>
+      <button id="theme-toggle" aria-label="Toggle dark mode">
+        <span class="sun-icon">☀️</span>
+        <span class="moon-icon">🌙</span>
+      </button>
+      <button id="menu-toggle" aria-label="Toggle menu">☰</button>
+      <nav id="main-nav">
+        <ul>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="tasks.html">Tasks</a></li>
+          <li><a href="ai-roadmap.html">AI Roadmap</a></li>
+          <li><a href="opencv-roadmap.html">OpenCV Roadmap</a></li>
+          <li><a href="dsa-roadmap.html">DSA Roadmap</a></li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="games.html">Games</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h2>Welcome to My Personal Site</h2>
+      <p>A collection of my learning roadmaps, projects, and ideas in programming, AI, and computer vision.</p>
+    </section>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-header">
+          <h3>PWA Development</h3>
+          <span class="badge">In Progress</span>
+        </div>
+        <div class="card-content">
+          <p>Creating backend with C++, converting data to JSON with Python, and using JavaScript for display.</p>
+          <p class="note">Hosting on Netlify</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h3>iOS Native Apps</h3>
+          <span class="badge outline">Research</span>
+        </div>
+        <div class="card-content">
+          <p>Exploring AltStore for sideloading apps without Apple Developer account.</p>
+          <p class="note">Using Qt for cross-platform development</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h3>Simulation Engine</h3>
+          <span class="badge">Active</span>
+        </div>
+        <div class="card-content">
+          <p>Building with C++ using SFML (OpenGL context)</p>
+          <ul class="note-list">
+            <li>Exploring unions in C++</li>
+            <li>Compile only changed files optimization</li>
+            <li>CLI tool for thought management</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h3>Game Ideas</h3>
+        </div>
+        <div class="card-content">
+          <div class="sub-item">
+            <h4>Orbital</h4>
+            <p class="note">Control a dot orbiting anchor points. Navigate through gravity fields to reach goals.</p>
+          </div>
+          <div class="sub-item">
+            <h4>ASCII Game Engine</h4>
+            <p class="note">Terminal-based game engine for retro-style games.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card full-width">
+      <div class="card-header">
+        <h3>Learning & Development</h3>
+      </div>
+      <div class="card-content two-columns">
+        <div>
+          <h4>Technical Skills</h4>
+          <ul class="note-list">
+            <li>Neural Networks (digit recognition → advanced drawings)</li>
+            <li>CPU and GPU design from logic gates</li>
+            <li>Networking (TCP, socket programming)</li>
+            <li>CTFs and ethical hacking</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Project Ideas</h4>
+          <ul class="note-list">
+            <li>UML diagram generator using simulation engine</li>
+            <li>Stellarium-like astronomy app</li>
+            <li>File archive system with auto-git upload</li>
+            <li>Spinning ASCII cube visualization</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="card full-width">
+      <div class="card-header">
+        <h3>Backend & Database</h3>
+      </div>
+      <div class="card-content">
+        <p>Exploring Supabase for free backend with PostgreSQL</p>
+        <p class="note">Alternative to managing infrastructure, with built-in authentication and real-time features.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="container">
+    <p>© 2025 Krish's Personal Site</p>
+    <div class="keyboard-info">
+      <button id="keyboard-help" aria-label="Keyboard shortcuts">⌨️ Keyboard Shortcuts</button>
+      <div id="keyboard-popup" class="hidden">
+        <h4>Keyboard Shortcuts</h4>
+        <ul>
+          <li><kbd>Tab</kbd> - Navigate between elements</li>
+          <li><kbd>Enter</kbd> - Select/activate focused element</li>
+          <li><kbd>Esc</kbd> - Close mobile menu</li>
+          <li><kbd>D</kbd> - Toggle dark mode</li>
+          <li><kbd>M</kbd> - Toggle mobile menu</li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
