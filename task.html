@@ -1,0 +1,472 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modern Kanban Board</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* General Reset & Body */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #1a202c; /* Dark background */
+        color: #e2e8f0; /* Light text */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100vh;
+        padding: 20px;
+        overflow-x: auto; /* Allow horizontal scrolling if columns overflow */
+      }
+
+      h1 {
+        font-size: 2.8rem;
+        color: #63b3ed; /* Light blue */
+        margin-bottom: 30px;
+        text-align: center;
+        letter-spacing: 0.05em;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+      }
+
+      /* Kanban Board Container */
+      .kanban-board {
+        display: flex;
+        gap: 20px; /* Space between columns */
+        align-items: flex-start; /* Align columns at the top */
+        padding-bottom: 20px; /* Space for scrollbar if needed */
+      }
+
+      /* Kanban Column */
+      .kanban-column {
+        background-color: #2d3748; /* Slightly lighter dark background for columns */
+        border-radius: 12px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+        padding: 20px;
+        min-width: 300px; /* Fixed width for columns */
+        max-width: 300px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        transition: box-shadow 0.3s ease-in-out;
+        flex-shrink: 0; /* Prevent columns from shrinking */
+      }
+
+      .kanban-column.drag-over {
+        box-shadow:
+          0 0 0 4px #68d391,
+          0 8px 16px rgba(0, 0, 0, 0.6); /* Highlight on drag-over */
+      }
+
+      .kanban-column h2 {
+        font-size: 1.5rem;
+        color: #90cdf4; /* Lighter blue for column titles */
+        margin-bottom: 15px;
+        text-align: center;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #4a5568; /* Subtle separator */
+      }
+
+      /* Task Input Area */
+      .task-input-container {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 15px;
+      }
+
+      .task-input {
+        flex-grow: 1;
+        padding: 10px 12px;
+        border: 1px solid #4a5568;
+        border-radius: 8px;
+        background-color: #4a5568; /* Darker input background */
+        color: #e2e8f0;
+        font-size: 1rem;
+        outline: none;
+        transition:
+          border-color 0.2s ease-in-out,
+          box-shadow 0.2s ease-in-out;
+      }
+
+      .task-input::placeholder {
+        color: #a0aec0;
+      }
+
+      .task-input:focus {
+        border-color: #63b3ed;
+        box-shadow: 0 0 0 3px rgba(99, 179, 237, 0.5);
+      }
+
+      .add-task-btn {
+        padding: 10px 15px;
+        background-color: #68d391; /* Green add button */
+        color: #1a202c; /* Dark text for contrast */
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 1rem;
+        font-weight: 500;
+        transition:
+          background-color 0.2s ease-in-out,
+          transform 0.1s ease-in-out;
+      }
+
+      .add-task-btn:hover {
+        background-color: #48bb78;
+        transform: translateY(-1px);
+      }
+
+      .add-task-btn:active {
+        transform: translateY(0);
+      }
+
+      /* Task List */
+      .task-list {
+        list-style: none;
+        padding: 0;
+        min-height: 80px; /* Ensure drop target area */
+        flex-grow: 1; /* Allow list to take available space */
+      }
+
+      /* Task Item */
+      .task-item {
+        background-color: #4a5568; /* Darker background for task items */
+        border-radius: 8px;
+        padding: 12px 15px;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        word-break: break-word;
+        cursor: grab; /* Indicate draggable */
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        transition:
+          background-color 0.2s ease-in-out,
+          transform 0.1s ease-in-out,
+          box-shadow 0.2s ease-in-out;
+      }
+
+      .task-item:last-child {
+        margin-bottom: 0;
+      }
+
+      .task-item:hover {
+        background-color: #5a6783; /* Slightly lighter on hover */
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+      }
+
+      .task-item.dragging {
+        opacity: 0.5;
+        border: 2px dashed #68d391; /* Green dashed border when dragging */
+        background-color: #4a5568;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        transform: translateY(0); /* Reset transform when dragging */
+        cursor: grabbing;
+      }
+
+      .task-text {
+        flex-grow: 1;
+        color: #e2e8f0;
+        font-weight: 500;
+        line-height: 1.4;
+      }
+
+      .delete-task-btn {
+        background: none;
+        border: none;
+        color: #fc8181; /* Red delete button */
+        font-size: 1.4rem;
+        cursor: pointer;
+        padding: 0 5px;
+        line-height: 1;
+        opacity: 0.7;
+        transition:
+          opacity 0.2s ease-in-out,
+          color 0.2s ease-in-out;
+      }
+
+      .delete-task-btn:hover {
+        opacity: 1;
+        color: #e53e3e;
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 900px) {
+        .kanban-board {
+          flex-direction: column; /* Stack columns on smaller screens */
+          align-items: center;
+        }
+        .kanban-column {
+          max-width: 90%; /* Adjust width for stacked columns */
+          min-width: unset;
+          width: 100%; /* Take full width on smaller screens */
+        }
+      }
+
+      @media (max-width: 480px) {
+        body {
+          padding: 15px;
+        }
+        h1 {
+          font-size: 2.2rem;
+        }
+        .kanban-column {
+          padding: 15px;
+        }
+        .kanban-column h2 {
+          font-size: 1.3rem;
+        }
+        .task-input,
+        .add-task-btn,
+        .task-item {
+          font-size: 0.95rem;
+          padding: 8px 10px;
+        }
+        .delete-task-btn {
+          font-size: 1.2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>My Kanban Board</h1>
+
+    <div class="kanban-board">
+      <div class="kanban-column" id="todo-column">
+        <h2>To Do</h2>
+        <div class="task-input-container">
+          <input
+            type="text"
+            class="task-input"
+            id="todo-input"
+            placeholder="Add a new task..."
+          />
+          <button class="add-task-btn" onclick="addTask('todo')">Add</button>
+        </div>
+        <ul class="task-list" id="todo-list"></ul>
+      </div>
+
+      <div class="kanban-column" id="doing-column">
+        <h2>Doing</h2>
+        <div class="task-input-container">
+          <input
+            type="text"
+            class="task-input"
+            id="doing-input"
+            placeholder="Add a new task..."
+          />
+          <button class="add-task-btn" onclick="addTask('doing')">Add</button>
+        </div>
+        <ul class="task-list" id="doing-list"></ul>
+      </div>
+
+      <div class="kanban-column" id="done-column">
+        <h2>Done</h2>
+        <div class="task-input-container">
+          <input
+            type="text"
+            class="task-input"
+            id="done-input"
+            placeholder="Add a new task..."
+          />
+          <button class="add-task-btn" onclick="addTask('done')">Add</button>
+        </div>
+        <ul class="task-list" id="done-list"></ul>
+      </div>
+    </div>
+
+    <script>
+      const taskLists = {
+        todo: document.getElementById("todo-list"),
+        doing: document.getElementById("doing-list"),
+        done: document.getElementById("done-list"),
+      };
+
+      const taskInputs = {
+        todo: document.getElementById("todo-input"),
+        doing: document.getElementById("doing-input"),
+        done: document.getElementById("done-input"),
+      };
+
+      let draggedItem = null; // To store the currently dragged task item
+      let currentColumn = null; // To store the column the item originated from
+
+      // Load tasks from local storage on page load
+      document.addEventListener("DOMContentLoaded", loadTasks);
+
+      function generateUniqueId() {
+        return "_" + Math.random().toString(36).substr(2, 9);
+      }
+
+      function addTask(columnId) {
+        const inputElement = taskInputs[columnId];
+        const taskText = inputElement.value.trim();
+
+        if (taskText === "") {
+          alert("Task cannot be empty!");
+          return;
+        }
+
+        const taskId = generateUniqueId();
+        createTaskElement(taskText, columnId, taskId);
+        saveTasks(); // Save tasks after adding
+        inputElement.value = ""; // Clear input field
+      }
+
+      function createTaskElement(text, columnId, id) {
+        const listItem = document.createElement("li");
+        listItem.className = "task-item";
+        listItem.draggable = true; // Make items draggable
+        listItem.dataset.id = id;
+        listItem.dataset.column = columnId;
+
+        const taskTextSpan = document.createElement("span");
+        taskTextSpan.className = "task-text";
+        taskTextSpan.textContent = text;
+
+        const deleteButton = document.createElement("button");
+        deleteButton.className = "delete-task-btn";
+        deleteButton.textContent = "×"; // 'x' character for delete
+        deleteButton.onclick = function () {
+          deleteTask(listItem);
+        };
+
+        listItem.appendChild(taskTextSpan);
+        listItem.appendChild(deleteButton);
+        taskLists[columnId].appendChild(listItem);
+
+        addDragAndDropListeners(listItem);
+      }
+
+      function deleteTask(taskItem) {
+        taskItem.remove();
+        saveTasks(); // Save tasks after deleting
+      }
+
+      function saveTasks() {
+        const allTasks = {};
+        for (const columnId in taskLists) {
+          const tasksInColumn = [];
+          taskLists[columnId].querySelectorAll(".task-item").forEach((item) => {
+            tasksInColumn.push({
+              id: item.dataset.id,
+              text: item.querySelector(".task-text").textContent,
+              column: item.dataset.column,
+            });
+          });
+          allTasks[columnId] = tasksInColumn;
+        }
+        localStorage.setItem("kanbanTasks", JSON.stringify(allTasks));
+      }
+
+      function loadTasks() {
+        const storedTasks = localStorage.getItem("kanbanTasks");
+        if (storedTasks) {
+          const allTasks = JSON.parse(storedTasks);
+          for (const columnId in allTasks) {
+            allTasks[columnId].forEach((task) => {
+              createTaskElement(task.text, task.column, task.id);
+            });
+          }
+        }
+      }
+
+      // --- Drag and Drop Functionality ---
+      function addDragAndDropListeners(item) {
+        item.addEventListener("dragstart", dragStart);
+        item.addEventListener("dragend", dragEnd);
+      }
+
+      function dragStart(e) {
+        draggedItem = this;
+        currentColumn = this.dataset.column; // Store the original column
+        setTimeout(() => {
+          this.classList.add("dragging");
+        }, 0); // Add class after the current call stack clears to avoid flicker
+        e.dataTransfer.effectAllowed = "move";
+        e.dataTransfer.setData("text/plain", this.dataset.id); // Set ID for data transfer
+      }
+
+      function dragEnd() {
+        draggedItem.classList.remove("dragging");
+        draggedItem = null;
+        currentColumn = null;
+      }
+
+      document.querySelectorAll(".kanban-column").forEach((column) => {
+        column.addEventListener("dragover", dragOver);
+        column.addEventListener("dragleave", dragLeave);
+        column.addEventListener("drop", drop);
+      });
+
+      function dragOver(e) {
+        e.preventDefault(); // Essential to allow drop
+        // Only add drag-over class if it's not the same column the item originated from
+        // or if it's the same column but dragging over to reorder
+        if (draggedItem && !this.contains(draggedItem)) {
+          this.classList.add("drag-over");
+        }
+        e.dataTransfer.dropEffect = "move";
+
+        // Visual indicator for reordering within the same list
+        const afterElement = getDragAfterElement(this, e.clientY);
+        const currentTasks = this.querySelector(".task-list");
+        if (afterElement == null) {
+          currentTasks.appendChild(draggedItem);
+        } else {
+          currentTasks.insertBefore(draggedItem, afterElement);
+        }
+      }
+
+      function dragLeave() {
+        this.classList.remove("drag-over");
+      }
+
+      function drop(e) {
+        e.preventDefault();
+        this.classList.remove("drag-over");
+
+        if (!draggedItem) return;
+
+        const targetColumnId = this.id.replace("-column", "");
+        const oldColumnId = draggedItem.dataset.column;
+
+        // Move the item to the new column (already handled by dragOver for visual reordering)
+        // Now, update its internal data and save
+        if (targetColumnId !== oldColumnId) {
+          draggedItem.dataset.column = targetColumnId;
+        }
+        saveTasks(); // Save changes after drop
+      }
+
+      function getDragAfterElement(column, y) {
+        const draggableElements = [
+          ...column.querySelectorAll(".task-item:not(.dragging)"),
+        ];
+
+        return draggableElements.reduce(
+          (closest, child) => {
+            const box = child.getBoundingClientRect();
+            const offset = y - box.top - box.height / 2;
+            if (offset < 0 && offset > closest.offset) {
+              return { offset: offset, element: child };
+            } else {
+              return closest;
+            }
+          },
+          { offset: Number.NEGATIVE_INFINITY },
+        ).element;
+      }
+    </script>
+  </body>
+</html>
