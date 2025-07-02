@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personalized Fitness & Nutrition Plan</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+      }
+      /* Custom styles for better readability in dark mode */
+      .container-padding {
+        padding-left: 1rem; /* px-4 */
+        padding-right: 1rem; /* px-4 */
+      }
+      @media (min-width: 640px) {
+        /* sm */
+        .container-padding {
+          padding-left: 2rem; /* sm:px-8 */
+          padding-right: 2rem; /* sm:px-8 */
+        }
+      }
+      @media (min-width: 768px) {
+        /* md */
+        .container-padding {
+          padding-left: 4rem; /* md:px-16 */
+          padding-right: 4rem; /* md:px-16 */
+        }
+      }
+      @media (min-width: 1024px) {
+        /* lg */
+        .container-padding {
+          padding-left: 8rem; /* lg:px-32 */
+          padding-right: 8rem; /* lg:px-32 */
+        }
+      }
+      /* Styling for the warning/alert box */
+      .warning-box {
+        background-color: #ef4444; /* red-500 */
+        color: #fef2f2; /* red-50 */
+        border-radius: 0.5rem; /* rounded-lg */
+        padding: 1rem; /* p-4 */
+        margin-bottom: 1.5rem; /* mb-6 */
+        font-weight: 500; /* font-medium */
+      }
+      .warning-box strong {
+        color: #fef2f2; /* red-50 */
+      }
+    </style>
+  </head>
+  <body
+    class="bg-gray-900 text-gray-100 min-h-screen flex items-center justify-center py-10"
+  >
+    <div
+      class="max-w-4xl mx-auto container-padding bg-gray-800 rounded-xl shadow-2xl p-6 md:p-10 lg:p-12"
+    >
+      <h1
+        class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-teal-400 mb-6 text-center"
+      >
+        Sharpen Your Training & Eating Strategy
+      </h1>
+
+      <p class="text-lg mb-8 leading-relaxed text-gray-300">
+        Your mindset is on point, and your strategy is heading in the right
+        direction — but let’s sharpen both your training approach and your
+        eating strategy, especially since you’re on a strict college schedule
+        and rejecting supplements.
+      </p>
+
+      <div class="warning-box">
+        <p class="mb-2">
+          ⚠️
+          <strong class="text-lg"
+            >First, About That New Weight Training Method:</strong
+          >
+        </p>
+        <p class="text-base italic">
+          “Start with the highest weight, push as much as possible, then go to
+          lower weights.”
+        </p>
+        <p class="text-base mt-2">
+          That’s basically reverse pyramid training — a legit method for
+          strength and hypertrophy, but only if done right.
+        </p>
+      </div>
+
+      <h2 class="text-2xl md:text-3xl font-bold text-teal-300 mb-4">
+        ✅ Use it like this:
+      </h2>
+      <ul
+        class="list-disc list-inside space-y-2 text-lg text-gray-200 mb-8 pl-4"
+      >
+        <li>
+          <strong class="text-teal-200">Start with your heaviest set</strong> →
+          ~4–6 reps
+        </li>
+        <li>Only if warm-up sets are done first (never hit top weight cold)</li>
+        <li>
+          <strong class="text-teal-200">Drop the weight</strong> ~10–15% per set
+        </li>
+        <li>
+          <strong class="text-teal-200">Increase reps</strong> as you drop
+          weight → e.g., 6 → 8 → 10
+        </li>
+        <li>
+          <strong class="text-teal-200">Keep rest long</strong> between heavy
+          sets (~90–120 sec)
+        </li>
+      </ul>
+      <p class="text-lg mb-6 leading-relaxed text-gray-300">
+        This method works well for compound lifts, not so great for mind-muscle
+        isolation (face pulls, curls, lateral raises).
+      </p>
+      <p class="text-lg mb-8 leading-relaxed text-gray-300">
+        🔧 Also: Never chase “as much as possible” if it kills form — especially
+        on push/pull machines or shoulder work. That’s how asymmetries + neck
+        pain creep back in.
+      </p>
+
+      <h2 class="text-2xl md:text-3xl font-bold text-teal-300 mb-4">
+        🍱 Now — Eating Strategy Without Whey, Creatine, or Supplements
+      </h2>
+      <p class="text-lg mb-4 leading-relaxed text-gray-300">You’ve got:</p>
+      <ul
+        class="list-disc list-inside space-y-1 text-lg text-gray-200 mb-6 pl-4"
+      >
+        <li>Tight morning</li>
+        <li>Long gap before gym</li>
+        <li>Late-night eating window</li>
+      </ul>
+      <p class="text-lg mb-8 leading-relaxed text-gray-300">
+        Let’s work with that instead of fighting it.
+      </p>
+
+      <h2 class="text-2xl md:text-3xl font-bold text-teal-300 mb-4">
+        🍽️ Strategic Eating Plan (No Whey, No Creatine, No Excuses)
+      </h2>
+
+      <div class="mb-8 p-4 bg-gray-700 rounded-lg shadow-md">
+        <h3 class="text-xl md:text-2xl font-semibold text-teal-200 mb-3">
+          ⚙️ Morning (6:30–7:30 AM): Fast-digesting, calorie-dense breakfast
+        </h3>
+        <p class="text-base text-gray-300 mb-3">
+          You won’t have time for a full meal, but you must not skip this.
+        </p>
+        <p class="font-medium text-lg text-gray-200 mb-2">Option 1:</p>
+        <ul
+          class="list-disc list-inside space-y-1 text-base text-gray-300 pl-4"
+        >
+          <li>1 banana</li>
+          <li>
+            1 glass milk (add powdered nuts or soaked dates for more calories)
+          </li>
+          <li>1 egg or 1 small paneer sandwich</li>
+        </ul>
+        <p class="font-medium text-lg text-gray-200 mt-4 mb-2">Option 2:</p>
+        <ul
+          class="list-disc list-inside space-y-1 text-base text-gray-300 pl-4"
+        >
+          <li>2 slices peanut butter toast + banana</li>
+          <li>1 boiled egg or leftover sabzi</li>
+        </ul>
+        <p class="text-base text-gray-300 mt-3">
+          <strong class="text-teal-200">Why?</strong> You’re creating a caloric
+          foundation. Even 300–400 kcal here makes a huge difference over 6
+          months.
+        </p>
+      </div>
+
+      <div class="mb-8 p-4 bg-gray-700 rounded-lg shadow-md">
+        <h3 class="text-xl md:text-2xl font-semibold text-teal-200 mb-3">
+          🍱 College Lunch (~12:30–1:30 PM)
+        </h3>
+        <p class="text-base text-gray-300 mb-3">
+          Make this your biggest controlled meal.
+        </p>
+        <ul
+          class="list-disc list-inside space-y-1 text-base text-gray-300 pl-4"
+        >
+          <li>White rice + dal + eggs or chicken or paneer</li>
+          <li>Add ghee/curd to raise calories</li>
+          <li>Carry extra chapatis or boiled eggs if mess food is weak</li>
+        </ul>
+      </div>
+
+      <div class="mb-8 p-4 bg-gray-700 rounded-lg shadow-md">
+        <h3 class="text-xl md:text-2xl font-semibold text-teal-200 mb-3">
+          🧃 Pre-Gym Bulking Shake (5:30–6:00 PM) — Homemade
+        </h3>
+        <p class="text-lg text-teal-200 mb-3">
+          ✅
+          <strong class="text-teal-200"
+            >THIS is your best time for a shake.</strong
+          >
+        </p>
+        <p class="font-medium text-lg text-gray-200 mb-2">Why here?</p>
+        <ul
+          class="list-disc list-inside space-y-1 text-base text-gray-300 pl-4"
+        >
+          <li>You’re low on energy before lifting</li>
+          <li>You’ll digest it during your gym commute</li>
+          <li>It fuels the session and primes recovery</li>
+        </ul>
+        <p class="font-medium text-lg text-gray-200 mt-4 mb-2">
+          🍌 Simple Whole-Food Bulking Shake:
+        </p>
+        <ul
+          class="list-disc list-inside space-y-1 text-base text-gray-300 pl-4"
+        >
+          <li>1 ripe banana</li>
+          <li>300 ml whole milk or nut milk</li>
+          <li>1 tbsp peanut butter</li>
+          <li>1 tbsp soaked almonds or cashews</li>
+          <li>1 tbsp jaggery or honey</li>
+          <li>(optional) oats or cooked rice to boost carbs</li>
+        </ul>
+        <p class="text-base text-gray-300 mt-3">
+          🌀 Blend. Chill if needed. Chug.
+        </p>
+        <p class="text-base text-gray-300 mt-2">
+          → That’s 500–700 kcal with real food, no whey, no creatine, no bloat.
+        </p>
+      </div>
+
+      <div class="mb-8 p-4 bg-gray-700 rounded-lg shadow-md">
+        <h3 class="text-xl md:text-2xl font-semibold text-teal-200 mb-3">
+          🍛 Post-Gym Dinner (~8:00–9:00 PM)
+        </h3>
+        <ul
+          class="list-disc list-inside space-y-1 text-base text-gray-300 pl-4"
+        >
+          <li>Rice + dal/rajma/chana + paneer/eggs/meat</li>
+          <li>1 paratha or ghee roti</li>
+          <li>Cooked veg + curd</li>
+          <li>Add peanuts, nuts, or pickle for extra fats</li>
+        </ul>
+      </div>
+
+      <div class="mb-8 p-4 bg-gray-700 rounded-lg shadow-md">
+        <h3 class="text-xl md:text-2xl font-semibold text-teal-200 mb-3">
+          🌙 Before Bed (10:30–11:00 PM)
+        </h3>
+        <ul
+          class="list-disc list-inside space-y-1 text-base text-gray-300 pl-4"
+        >
+          <li>1 glass milk</li>
+          <li>Handful of nuts or leftover paratha</li>
+          <li>Or a second mini meal (boiled eggs, curd rice, oats, etc.)</li>
+        </ul>
+      </div>
+
+      <h2 class="text-2xl md:text-3xl font-bold text-teal-300 mb-4">
+        🧠 Remember:
+      </h2>
+      <p class="text-lg mb-4 leading-relaxed text-gray-300">
+        You don’t need supplements if you can get:
+      </p>
+      <ul
+        class="list-disc list-inside space-y-1 text-lg text-gray-200 mb-6 pl-4"
+      >
+        <li>3–4 meals/day</li>
+        <li>~1.6–2g protein/kg</li>
+        <li>Consistent calorie surplus</li>
+      </ul>
+      <p class="text-lg mb-6 leading-relaxed text-gray-300">
+        <strong class="text-teal-200">The shake is not optional.</strong> If you
+        miss it, you won’t gain.
+      </p>
+
+      <h2 class="text-2xl md:text-3xl font-bold text-teal-300 mb-4">
+        🧭 Want to Gain 10kg? Then treat food like training:
+      </h2>
+      <ul
+        class="list-disc list-inside space-y-1 text-lg text-gray-200 mb-6 pl-4"
+      >
+        <li>You don’t eat when you're hungry</li>
+        <li>You eat when your goal needs it</li>
+      </ul>
+
+      <p class="text-lg mb-4 leading-relaxed text-gray-300">
+        If you want, I can:
+      </p>
+      <ul
+        class="list-disc list-inside space-y-1 text-lg text-gray-200 mb-6 pl-4"
+      >
+        <li>Build a 1-day sample meal plan based on your mess + home setup</li>
+        <li>Help you estimate your total protein & calories</li>
+        <li>
+          Create a meal log template to track if you’re really eating enough
+        </li>
+      </ul>
+      <p class="text-lg leading-relaxed text-gray-300">
+        Your training mindset is strong — but growth lives in the kitchen. Let
+        me know.
+      </p>
+    </div>
+  </body>
+</html>
