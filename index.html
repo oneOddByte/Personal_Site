@@ -21,6 +21,21 @@
       <li>
         Create an app that takes md notes from a gitrepo and displays it
         cleanly.
+        <br />
+        Option 2: Flutter + C++ FFI (SECOND CHOICE) Architecture: Your C++ Core
+        Logic (90%) │ Flutter UI (10%) ├── GitManager.cpp │ ├── main.dart (50
+        lines) ├── MarkdownParser.cpp │ ├── notes_screen.dart (100 lines) ├──
+        FileSystem.cpp │ └── settings_screen.dart (50 lines) └──
+        NotesDatabase.cpp │ Code Distribution: cpp// core_logic.cpp - Your
+        domain (MOST of your code) extern "C" { char* get_notes_list(const char*
+        repo_path) { // 500+ lines of your C++ logic return notes_json; } char*
+        render_markdown(const char* content) { // Your markdown processing
+        return rendered_html; } } dart// main.dart - Minimal UI wrapper (MINIMAL
+        code) class NotesApp extends StatelessWidget { Widget build(context) =>
+        MaterialApp( home: NotesScreen() ); } class NotesScreen extends
+        StatelessWidget { Widget build(context) => Scaffold( body:
+        FutureBuilder( future: NativeLib.getNotesList(), // Calls your C++
+        builder: (context, snapshot) => ListView(children: snapshot.data) ) ); }
       </li>
     </ol>
 
